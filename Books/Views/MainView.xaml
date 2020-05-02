@@ -1,0 +1,341 @@
+﻿<Window x:Class="Books.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Books"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:vm="clr-namespace:Books.ViewModels"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        x:Name="ThisWindow"
+        Icon="/Pictures/icon.png"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:converter="clr-namespace:Books.Infrustructure"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="{DynamicResource Books}" Height="450" Width="900" MinWidth="565"  WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <vm:MainViewModel></vm:MainViewModel>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <converter:RadioBoolToIntConverter x:Key="radioBoolToIntConverter" />
+    </Window.Resources>
+
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top"
+                   Style="{DynamicResource MenuBg}">
+            <Button DockPanel.Dock="Left"
+                    Command="{Binding AddCommand}"
+                    CommandParameter="{Binding ElementName=ThisWindow}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="10 5"
+                    Padding="5"                   
+                    FontSize="{Binding RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, Path=DataContext.FontSizeMenu}"
+                    Style="{DynamicResource ButtonAdd}"
+                    materialDesign:ButtonAssist.CornerRadius="25"
+                    ToolTip="{DynamicResource Add}">
+                <materialDesign:PackIcon
+                    Kind="Plus"
+                    Height="24"
+                    Width="24" />
+            </Button>
+            <ComboBox DockPanel.Dock="Left"
+                      Width="350"   
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Center"
+                      Margin="10 5"
+                      Padding="5"    
+                      FontSize="{Binding RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, Path=DataContext.FontSizeMenu}"
+                      IsEditable="True">
+                <ComboBox.Items>
+                    <ComboBoxItem Content="{DynamicResource SortByIdAscending}" 
+                                  IsSelected="True">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding SortCommand}"
+                                                       CommandParameter="{converter:SortCriterion Field='Id', Descending=False}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource SortByTitleAscending}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding SortCommand}"
+                                                       CommandParameter="{converter:SortCriterion Field='Title', Descending=False}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource SortByTitleDescending}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding SortCommand}"
+                                                       CommandParameter="{converter:SortCriterion Field='Title', Descending=True}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource SortByAuthorAscending}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding SortCommand}"
+                                                       CommandParameter="{converter:SortCriterion Field='Author', Descending=False}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource SortByAuthorDescending}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding SortCommand}"
+                                                       CommandParameter="{converter:SortCriterion Field='Author', Descending=True}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource SortByPriceAscending}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding SortCommand}"
+                                                       CommandParameter="{converter:SortCriterion Field='Price', Descending=False}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource SortByPriceDescending}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding SortCommand}"
+                                                       CommandParameter="{converter:SortCriterion Field='Price', Descending=True}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource SortByYearAscending}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding SortCommand}"
+                                                       CommandParameter="{converter:SortCriterion Field='Year', Descending=False}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource SortByYearDescending}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding SortCommand}"
+                                                       CommandParameter="{converter:SortCriterion Field='Year', Descending=True}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource SortByPublisherAscending}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding SortCommand}"
+                                                       CommandParameter="{converter:SortCriterion Field='Publisher', Descending=False}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource SortByPublisherDescending}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding SortCommand}"
+                                                       CommandParameter="{converter:SortCriterion Field='Publisher', Descending=True}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource SortByPagesAscending}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding SortCommand}"
+                                                       CommandParameter="{converter:SortCriterion Field='Pages', Descending=False}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource SortByPagesDescending}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding SortCommand}"
+                                                       CommandParameter="{converter:SortCriterion Field='Pages', Descending=True}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBoxItem>
+                </ComboBox.Items>
+            </ComboBox>
+            <Menu IsMainMenu="True"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Right"
+                  Style="{DynamicResource MenuBg}"
+                  DockPanel.Dock="Right">
+                <MenuItem>
+                    <MenuItem.Header>
+                        <materialDesign:PackIcon Kind="CogBox"
+                                                 HorizontalAlignment="Right" 
+                                                 Style="{DynamicResource MenuIcon}"
+                                                 Width="50" 
+                                                 Height="50"/>
+                    </MenuItem.Header>
+                    <MenuItem FontSize="{Binding RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, Path=DataContext.FontSizeMenu}"
+                              Width="150px"
+                              Header="{DynamicResource Size}">
+                        <RadioButton Width="150px"
+                                     Style="{StaticResource MaterialDesignDarkRadioButton}"
+                                IsChecked="{Binding Size, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=0}"
+                                GroupName="Size" 
+                                Content="{DynamicResource Small}"/>
+                        <RadioButton Width="150px"
+                                     Style="{StaticResource MaterialDesignDarkRadioButton}"
+                                IsChecked="{Binding Size, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=1}"
+                                GroupName="Size" 
+                                Content="{DynamicResource Medium}"/>
+                        <RadioButton Width="150px"
+                                     Style="{StaticResource MaterialDesignDarkRadioButton}"
+                                IsChecked="{Binding Size, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=2}"
+                                GroupName="Size" 
+                                Content="{DynamicResource Large}"/>
+                    </MenuItem>
+                    <Separator/>
+                    <MenuItem FontSize="{Binding RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, Path=DataContext.FontSizeMenu}"
+                              Width="150px"
+                              Header="{DynamicResource Theme}">
+                        <RadioButton Width="150px"
+                                     Style="{StaticResource MaterialDesignDarkRadioButton}"
+                                IsChecked="{Binding ThemeIndex, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=0}"
+                                GroupName="ColorTheme" 
+                                Content="{DynamicResource Light}"/>
+                        <RadioButton Width="150px"
+                                     Style="{StaticResource MaterialDesignDarkRadioButton}"
+                                IsChecked="{Binding ThemeIndex, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=1}"
+                                GroupName="ColorTheme" 
+                                Content="{DynamicResource Dark}"/>
+                    </MenuItem>
+                    <Separator></Separator>
+                    <MenuItem FontSize="{Binding RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, Path=DataContext.FontSizeMenu}"
+                              Width="150px"
+                              Header="{DynamicResource Language}">
+                        <RadioButton Width="150px"
+                                     Style="{StaticResource MaterialDesignDarkRadioButton}"
+                                IsChecked="{Binding Language, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=0}"
+                                GroupName="Language" 
+                                Content="{DynamicResource Russian}"/>
+                        <RadioButton Width="150px"
+                                     Style="{StaticResource MaterialDesignDarkRadioButton}"
+                                IsChecked="{Binding Language, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=1}"
+                                GroupName="Language" 
+                                Content="{DynamicResource Ukrainian}"/>
+                        <RadioButton Width="150px"
+                                     Style="{StaticResource MaterialDesignDarkRadioButton}"
+                                IsChecked="{Binding Language, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=2}"
+                                GroupName="Language" 
+                                Content="{DynamicResource English}"/>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <Grid Style="{DynamicResource MainColorBg}">
+            <ListBox ItemsSource="{Binding Books}"
+                     SelectedItem="{Binding SelectedBook}"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     Margin="10 15"
+                     HorizontalContentAlignment="Stretch"
+                     VerticalContentAlignment="Top">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction 
+                                Command="{Binding EditCommand}"
+                                CommandParameter="{Binding RelativeSource=
+                                                 {RelativeSource
+                                                 Mode=FindAncestor,
+                                                 AncestorType={x:Type Window}}}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <ListBox.ContextMenu>
+                    <ContextMenu Background="#d3ff87">
+                        <ContextMenu.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ContextMenu.ItemsPanel>
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"  
+                                Padding="0" Margin="0"
+                                MinWidth="25px"
+                                FontSize="{Binding RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, Path=DataContext.FontSizeMenu}"
+                                FontWeight="Bold"
+                                Content="{materialDesign:PackIcon Pencil}" 
+                                ToolTip="{DynamicResource Edit}" 
+                                Command="{Binding EditCommand}"
+                                CommandParameter="{x:Reference Name=ThisWindow}"/>
+                        <Button Style="{StaticResource MaterialDesignFlatButton}" 
+                                Padding="0" Margin="0"
+                                MinWidth="25px"
+                                FontSize="{Binding RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, Path=DataContext.FontSizeMenu}"
+                                FontWeight="Bold"
+                                Content="{materialDesign:PackIcon Delete}" 
+                                ToolTip="{DynamicResource Remove}" 
+                                Command="{Binding RemoveCommand}"/>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, Path=DataContext.ImageSize}">
+                            <Image Width="{Binding RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, Path=DataContext.ImageSize}"
+                                   Height="{Binding RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, Path=DataContext.ImageSize}"
+                                   Margin="5 10"
+							       Stretch="Uniform"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+							       Source="{Binding Image}"
+                                   SnapsToDevicePixels="False"></Image>
+                            <TextBlock FontSize="{Binding RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, Path=DataContext.FontSize}"
+                                       TextAlignment="Center"
+                                       TextWrapping="Wrap"
+                                       FontWeight="Bold"
+								       Text="{Binding Title}"></TextBlock>
+                            <TextBlock FontSize="{Binding RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, Path=DataContext.FontSize}"
+                                       TextAlignment="Center"
+                                       TextWrapping="Wrap"
+								       Text="{Binding Author}"></TextBlock>
+                            <TextBlock FontSize="{Binding RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, Path=DataContext.FontSize}"
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Center">
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0}, {1}">
+                                            <Binding Path="Publisher" />
+                                            <Binding Path="Year" />
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                                <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock  Grid.Column="0"
+                                            FontSize="{Binding RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, Path=DataContext.FontSize}"
+                                            TextAlignment="Right"
+                                            VerticalAlignment="Center"
+								            Text="{Binding Pages}"></TextBlock>
+                                <Label Grid.Column="1"
+                                           FontSize="{Binding RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, Path=DataContext.FontSize}"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Content="{DynamicResource ShortPageForm}"/>
+                            </Grid>
+                            <TextBlock FontSize="{Binding RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, Path=DataContext.FontSize}"
+                                       TextAlignment="Center"
+                                       FontWeight="Bold"
+								       Text="{Binding StringFormat={}{0} ₴, Path= Price}"></TextBlock>
+                            </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </Grid>
+    </DockPanel>
+</Window>

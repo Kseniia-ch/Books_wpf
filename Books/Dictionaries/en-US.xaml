@@ -1,0 +1,53 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Books.Dictionaries"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="Books">Books</system:String>
+    <system:String x:Key="Book">Book</system:String>
+
+    <system:String x:Key="Size">Size</system:String>
+    <system:String x:Key="Small">Small</system:String>
+    <system:String x:Key="Medium">Medium</system:String>
+    <system:String x:Key="Large">Large</system:String>
+    
+    <system:String x:Key="Theme">Theme</system:String>
+    <system:String x:Key="Light">Light</system:String>
+    <system:String x:Key="Dark">Dark</system:String>
+
+    <system:String x:Key="Language">Language</system:String>
+    <system:String x:Key="Russian">Russian</system:String>
+    <system:String x:Key="Ukrainian">Ukrainian</system:String>
+    <system:String x:Key="English">English</system:String>
+
+    <system:String x:Key="Add">Add</system:String>
+    <system:String x:Key="Edit">Edit</system:String>
+    <system:String x:Key="Remove">Remove</system:String>
+
+    <system:String x:Key="Save">Save</system:String>
+    <system:String x:Key="Сancel">Cancel</system:String>
+
+    <system:String x:Key="Title">Title</system:String>
+    <system:String x:Key="Author">Автор</system:String>
+    <system:String x:Key="Publisher">Publisher</system:String>
+    <system:String x:Key="Year">Year</system:String>
+    <system:String x:Key="Pages">Pages</system:String>
+    <system:String x:Key="Price">Price</system:String>
+
+    <system:String x:Key="ShortPageForm">p.</system:String>
+
+    <system:String x:Key="SortByIdAscending">By default</system:String>
+    <system:String x:Key="SortByTitleAscending">By name (A -> Z)</system:String>
+    <system:String x:Key="SortByTitleDescending">By name (Z -> A)</system:String>
+    <system:String x:Key="SortByAuthorAscending">By author (A -> Z)</system:String>
+    <system:String x:Key="SortByAuthorDescending">By author (Z -> A)</system:String>
+    <system:String x:Key="SortByYearAscending">By publication date ascending</system:String>
+    <system:String x:Key="SortByYearDescending">By publication date ascending</system:String>
+    <system:String x:Key="SortByPublisherAscending">By publisher ascending</system:String>
+    <system:String x:Key="SortByPublisherDescending">By publisher ascending</system:String>
+    <system:String x:Key="SortByPagesAscending">From thin to thick</system:String>
+    <system:String x:Key="SortByPagesDescending">From thick to thin</system:String>
+    <system:String x:Key="SortByPriceAscending">By price ascending</system:String>
+    <system:String x:Key="SortByPriceDescending">By price descending</system:String>
+
+</ResourceDictionary>

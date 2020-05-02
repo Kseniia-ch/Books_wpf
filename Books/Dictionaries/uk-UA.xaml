@@ -1,0 +1,53 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Books.Dictionaries"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="Books">Книги</system:String>
+    <system:String x:Key="Book">Книга</system:String>
+
+    <system:String x:Key="Size">Розмір</system:String>
+    <system:String x:Key="Small">Дрібний</system:String>
+    <system:String x:Key="Medium">Середній</system:String>
+    <system:String x:Key="Large">Великий</system:String>
+    
+    <system:String x:Key="Theme">Тема</system:String>
+    <system:String x:Key="Light">Світла</system:String>
+    <system:String x:Key="Dark">Темна</system:String>
+
+    <system:String x:Key="Language">Мова</system:String>
+    <system:String x:Key="Russian">Російська</system:String>
+    <system:String x:Key="Ukrainian">Українська</system:String>
+    <system:String x:Key="English">Англійська</system:String>
+
+    <system:String x:Key="Add">Додати</system:String>
+    <system:String x:Key="Edit">Змінити</system:String>
+    <system:String x:Key="Remove">Видалити</system:String>
+
+    <system:String x:Key="Save">Зберегти</system:String>
+    <system:String x:Key="Сancel">Скасувати</system:String>
+
+    <system:String x:Key="Title">Назва</system:String>
+    <system:String x:Key="Author">Автор</system:String>
+    <system:String x:Key="Publisher">Видавництво</system:String>
+    <system:String x:Key="Year">Рік видання</system:String>
+    <system:String x:Key="Pages">К-сть сторінок</system:String>
+    <system:String x:Key="Price">Ціна</system:String>
+
+    <system:String x:Key="ShortPageForm">с.</system:String>
+
+    <system:String x:Key="SortByIdAscending">За замовчуванням</system:String>
+    <system:String x:Key="SortByTitleAscending">За найменуванням (від А до Я)</system:String>
+    <system:String x:Key="SortByTitleDescending">За найменуванням (від Я до А)</system:String>
+    <system:String x:Key="SortByAuthorAscending">За автором (від А до Я)</system:String>
+    <system:String x:Key="SortByAuthorDescending">За автором (від Я до А)</system:String>
+    <system:String x:Key="SortByYearAscending">За датою видання за зростанням</system:String>
+    <system:String x:Key="SortByYearDescending">За датою видання за спаданням</system:String>
+    <system:String x:Key="SortByPublisherAscending">За видавництвом за зростанням</system:String>
+    <system:String x:Key="SortByPublisherDescending">За видавництвом за спаданням</system:String>
+    <system:String x:Key="SortByPagesAscending">Від тонких до товстих</system:String>
+    <system:String x:Key="SortByPagesDescending">Від товстих до тонких</system:String>
+    <system:String x:Key="SortByPriceAscending">Від дешевих до дорогих</system:String>
+    <system:String x:Key="SortByPriceDescending">Від дорогих до дешевих</system:String>
+
+</ResourceDictionary>

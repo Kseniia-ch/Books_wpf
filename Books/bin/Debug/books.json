@@ -1,0 +1,42 @@
+[
+  {
+    "Id": 5,
+    "Title": "  Автомобили Мира 2017-2018гг. ",
+    "Author": null,
+    "Year": 2017,
+    "Publisher": "ИД Третий Рим ",
+    "Pages": 312,
+    "Price": 13372.0,
+    "Image": "АвтомобилиМира.jpeg"
+  },
+  {
+    "Id": 6,
+    "Title": "CLR  via  C#.  Программирование  на  платформе  Microsoft  .NET  Framework  4.5  на  языке C#.",
+    "Author": "Рихтер Дж.",
+    "Year": 2013,
+    "Publisher": "СПб.: Питер",
+    "Pages": 896,
+    "Price": 998.0,
+    "Image": "CLR via C#.jpg"
+  },
+  {
+    "Id": 7,
+    "Title": "Характеристики Язык программирования C# 7 и платформы .NET и .NET Core",
+    "Author": "Ендрю Троелсен, Філіпп Джепікс",
+    "Year": 2016,
+    "Publisher": "СПб.: Диалектика",
+    "Pages": 1328,
+    "Price": 1299.0,
+    "Image": "С#.jpg"
+  },
+  {
+    "Id": 8,
+    "Title": "ASP.NET Core MVC 2 с примерами на C# для профессионалов",
+    "Author": "Адам Фрімен",
+    "Year": 2016,
+    "Publisher": "СПб.: Диалектика",
+    "Pages": 1008,
+    "Price": 1299.0,
+    "Image": "ASP.jpg"
+  }
+]
